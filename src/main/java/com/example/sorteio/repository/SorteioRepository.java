@@ -1,10 +1,19 @@
 package com.example.sorteio.repository;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import java.util.Random;
 
-@Data
-@AllArgsConstructor
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class SorteioRepository {
-    private int dado;
+    private final Random random = new Random();
+
+    
+    public int gerarNumero(int maximo) {
+        return random.nextInt(maximo) + 1;
+    }
+
+    public int gerarNumero() {
+        return gerarNumero(6);
+    }
 }
